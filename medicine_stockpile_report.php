@@ -111,21 +111,31 @@ if (!$center) {
 | Get medicines, including acquisition and expiration dates
 |--------------------------------------------------------------------------
 */
-$medicineStmt = $conn->prepare(
-    "SELECT
-        id,
-        name,
-        unit,
-        stock_quantity,
-        reorder_threshold,
-        acquisition_date,
-        expiration_date
-     FROM medicines
-     WHERE health_center_id = ?
-     ORDER BY name ASC"
-);
+$sql = "SELECT
+            id,
+            name,
+            unit,
+            stock_quantity,
+            reorder_threshold,
+            acquisition_date,
+            expiration_date
+        FROM medicines
+        WHERE health_center_id = ?
+        ORDER BY name ASC";
+
+$medicineStmt = $conn->prepare($sql);
+
+if ($medicineStmt === false) {
+    die("SQL Prepare Error: " . $conn->error);
+}
 
 $medicineStmt->bind_param("i", $centerId);
+
+if (!$medicineStmt->execute()) {
+    die("SQL Execute Error: " . $medicineStmt->error);
+}
+
+$result = $medicineStmt->get_result();
 $medicineStmt->execute();
 
 $medicineResult = $medicineStmt->get_result();

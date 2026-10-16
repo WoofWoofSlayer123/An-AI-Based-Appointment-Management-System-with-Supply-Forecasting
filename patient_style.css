@@ -1059,3 +1059,1274 @@
 .prescription-history-item p {
     margin: 5px 0;
 }
+
+
+/* =========================================
+   STAFF HOME: COMPACT DASHBOARD
+========================================= */
+
+.staff-home {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+    min-width: 0;
+    padding-bottom: 12px;
+}
+
+.staff-home .dash-title {
+    margin: 0;
+    line-height: 1.2;
+    font-size: clamp(24px, 2.5vw, 32px);
+}
+
+.staff-home .dash-card {
+    min-width: 0;
+    margin: 0;
+}
+
+/* Welcome header */
+.home-welcome {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 16px;
+    padding: 20px 24px;
+    border-radius: 14px;
+    background: linear-gradient(120deg, #164e4a, #236a62);
+    color: #fff;
+    overflow: hidden;
+}
+
+.welcome-text {
+    min-width: 0;
+}
+
+.welcome-date {
+    margin: 0 0 7px;
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    color: #d4e6df;
+}
+
+.staff-home .home-welcome .dash-title {
+    color: #fff;
+}
+
+.welcome-center {
+    margin: 7px 0 0;
+    font-size: 14px;
+    font-weight: 600;
+    color: #f1f7f4;
+    overflow-wrap: anywhere;
+}
+
+.welcome-description {
+    margin: 5px 0 0;
+    font-size: 12px;
+    color: #d4e6df;
+}
+
+.welcome-icon {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex: 0 0 62px;
+    width: 62px;
+    height: 62px;
+    border-radius: 16px;
+    background: rgba(255, 255, 255, 0.12);
+    color: #f1d69b;
+    font-size: 43px;
+    font-weight: 400;
+}
+
+/* Statistics cards */
+.home-stats {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 12px;
+}
+
+.home-stat {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    min-width: 0;
+    padding: 16px;
+    border: 1px solid #e1e9e3;
+    border-radius: 12px;
+    background: #fff;
+    color: #263b37;
+    text-decoration: none;
+    box-shadow: 0 2px 8px rgba(22, 78, 74, 0.035);
+    transition: transform 0.15s ease, box-shadow 0.15s ease;
+}
+
+.home-stat:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 5px 14px rgba(22, 78, 74, 0.09);
+}
+
+.home-stat:focus-visible {
+    outline: 3px solid #d6ad58;
+    outline-offset: 3px;
+}
+
+.stat-icon {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex: 0 0 42px;
+    width: 42px;
+    height: 42px;
+    border-radius: 11px;
+    font-size: 18px;
+}
+
+.stat-pending .stat-icon {
+    background: #fff3d9;
+    color: #9a6500;
+}
+
+.stat-visits .stat-icon {
+    background: #e2f3ee;
+    color: #26776b;
+}
+
+.stat-stock .stat-icon {
+    background: #fde9e7;
+    color: #b63d36;
+}
+
+.stat-content {
+    display: flex;
+    flex: 1;
+    flex-direction: column;
+    min-width: 0;
+    gap: 3px;
+}
+
+.stat-label {
+    font-size: 11px;
+    line-height: 1.4;
+    color: #657670;
+    font-weight: 600;
+}
+
+.stat-number {
+    font-size: clamp(23px, 2.2vw, 30px);
+    line-height: 1.1;
+    font-weight: 700;
+    color: #204b44;
+}
+
+.stat-caption {
+    font-size: 10px;
+    color: #75837d;
+}
+
+.stat-arrow {
+    flex: 0 0 auto;
+    color: #96a7a0;
+    font-size: 25px;
+}
+
+/* Panels */
+.home-panel {
+    padding: 0 !important;
+    overflow: hidden;
+}
+
+.home-panel-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 12px;
+    padding: 16px 20px;
+    border-bottom: 1px solid #e5ebe6;
+}
+
+.home-panel-header > div {
+    min-width: 0;
+}
+
+.staff-home .home-panel .card-heading {
+    margin: 0;
+    font-size: 16px;
+    line-height: 1.4;
+    color: #214c45;
+}
+
+.home-panel-subtitle {
+    margin: 4px 0 0;
+    color: #77847e;
+    font-size: 11px;
+    line-height: 1.5;
+}
+
+.home-count {
+    flex: 0 0 auto;
+    padding: 6px 10px;
+    border-radius: 20px;
+    background: #fff1d5;
+    color: #8c5e0c;
+    font-size: 10px;
+    font-weight: 700;
+    white-space: nowrap;
+}
+
+.home-count-teal {
+    background: #e1f2ec;
+    color: #236c5c;
+}
+
+/* Tables */
+.home-table-wrap {
+    width: 100%;
+    min-width: 0;
+    overflow-x: auto;
+}
+
+.staff-home .home-table {
+    width: 100%;
+    min-width: 650px;
+    margin: 0;
+    border-collapse: collapse;
+    font-size: 12px;
+}
+
+.staff-home .home-table th {
+    padding: 11px 16px;
+    background: #f4f7f4;
+    color: #62736c;
+    text-align: left;
+    font-size: 10px;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.35px;
+    white-space: nowrap;
+}
+
+.staff-home .home-table td {
+    padding: 11px 16px;
+    border-bottom: 1px solid #edf1ed;
+    color: #344640;
+    vertical-align: middle;
+}
+
+.staff-home .home-table tbody tr:last-child td {
+    border-bottom: 0;
+}
+
+.staff-home .home-table tbody tr:hover {
+    background: #fafcf9;
+}
+
+.home-patient-name {
+    font-weight: 600;
+    color: #284d45;
+}
+
+.home-time {
+    font-weight: 700;
+    color: #286b60;
+    white-space: nowrap;
+}
+
+.home-action-heading {
+    min-width: 280px;
+}
+
+/* Appointment action controls */
+.home-actions-cell {
+    min-width: 280px;
+}
+
+.home-action-group {
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 6px;
+}
+
+.home-confirm-form {
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 6px;
+    margin: 0;
+}
+
+.home-confirm-form select {
+    width: 145px;
+    max-width: 100%;
+    min-height: 33px;
+    padding: 6px 8px;
+    border: 1px solid #dbe5de;
+    border-radius: 7px;
+    background: #fff;
+    color: #344640;
+    font: inherit;
+    font-size: 11px;
+}
+
+.home-btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 33px;
+    padding: 7px 11px;
+    border: 1px solid transparent;
+    border-radius: 7px;
+    font: inherit;
+    font-size: 11px;
+    font-weight: 700;
+    cursor: pointer;
+    transition: filter 0.15s ease;
+}
+
+.home-btn:hover:not(:disabled) {
+    filter: brightness(0.95);
+}
+
+.home-btn:disabled {
+    opacity: 0.5;
+    cursor: not-allowed;
+}
+
+.home-btn-confirm {
+    background: #216b58;
+    color: #fff;
+}
+
+.home-btn-reject {
+    background: #fff;
+    color: #b33c3c;
+    border-color: #edcecb;
+}
+
+.home-notice {
+    display: flex;
+    align-items: flex-start;
+    gap: 9px;
+    margin: 12px 16px 0;
+    padding: 11px 13px;
+    border: 1px solid #f1dfb8;
+    border-radius: 8px;
+    background: #fff9eb;
+    color: #805d1c;
+    font-size: 11px;
+    line-height: 1.6;
+}
+
+.home-notice i {
+    margin-top: 2px;
+}
+
+/* Empty states */
+.home-empty {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    gap: 5px;
+    min-height: 110px;
+    padding: 18px;
+    text-align: center;
+    color: #73827b;
+}
+
+.home-empty > i {
+    margin-bottom: 3px;
+    font-size: 22px;
+    color: #7da096;
+}
+
+.home-empty strong {
+    font-size: 12px;
+    color: #38554b;
+}
+
+.home-empty span {
+    font-size: 11px;
+}
+
+.home-empty-compact {
+    min-height: 85px;
+}
+
+/* Responsive layout */
+@media (max-width: 1000px) {
+    .home-stats {
+        gap: 9px;
+    }
+
+    .home-stat {
+        padding: 13px;
+        gap: 9px;
+    }
+
+    .stat-icon {
+        flex-basis: 36px;
+        width: 36px;
+        height: 36px;
+        font-size: 15px;
+    }
+}
+
+@media (max-width: 720px) {
+    .staff-home {
+        gap: 12px;
+    }
+
+    .home-welcome {
+        padding: 17px;
+    }
+
+    .home-stats {
+        grid-template-columns: 1fr;
+        gap: 8px;
+    }
+
+    .home-stat {
+        padding: 12px 14px;
+    }
+
+    .stat-number {
+        font-size: 24px;
+    }
+
+    .home-panel-header {
+        align-items: flex-start;
+        padding: 13px 14px;
+    }
+
+    .staff-home .home-table th,
+    .staff-home .home-table td {
+        padding: 10px 12px;
+    }
+}
+
+@media (max-width: 420px) {
+    .welcome-icon {
+        flex-basis: 43px;
+        width: 43px;
+        height: 43px;
+        border-radius: 11px;
+        font-size: 31px;
+    }
+
+    .staff-home .dash-title {
+        font-size: 23px;
+    }
+
+    .welcome-center {
+        font-size: 12px;
+    }
+
+    .home-panel-header {
+        flex-wrap: wrap;
+    }
+
+    .home-count {
+        padding: 5px 8px;
+    }
+}
+
+
+/* =========================================
+   STAFF HOME: SYSTEM COLOR SCHEME
+   Dark Teal / Sage / Gold / Warm White
+========================================= */
+
+.staff-home {
+    color: var(--ink, #263432);
+}
+
+/* Welcome header */
+.home-welcome {
+    background: linear-gradient(
+        120deg,
+        var(--teal-900, #164e4a),
+        #205f57
+    );
+    color: var(--warm-white, #faf8f1);
+}
+
+.welcome-date {
+    color: var(--gold, #d6ad58);
+}
+
+.staff-home .home-welcome .dash-title {
+    color: var(--warm-white, #faf8f1);
+}
+
+.welcome-center {
+    color: #f0f4ef;
+}
+
+.welcome-description {
+    color: #d6e4dc;
+}
+
+.welcome-icon {
+    background: rgba(255, 255, 255, 0.10);
+    color: var(--gold, #d6ad58);
+    border: 1px solid rgba(242, 197, 124, 0.22);
+}
+
+/* Statistics cards */
+.home-stat {
+    background: var(--white, #ffffff);
+    border-color: var(--line, #dce5df);
+    color: var(--ink, #263432);
+    box-shadow: 0 2px 8px rgba(22, 78, 74, 0.04);
+}
+
+.home-stat:hover {
+    border-color: var(--sage-300, #b8cfc2);
+    box-shadow: 0 5px 14px rgba(22, 78, 74, 0.09);
+}
+
+.stat-icon {
+    background: var(--sage-100, #e7eee7);
+    color: var(--teal-900, #164e4a);
+}
+
+.stat-pending .stat-icon {
+    background: #f8efd9;
+    color: #876322;
+}
+
+.stat-visits .stat-icon {
+    background: var(--sage-100, #e7eee7);
+    color: var(--teal-900, #164e4a);
+}
+
+.stat-stock .stat-icon {
+    background: #f8e9e5;
+    color: #9d4038;
+}
+
+.stat-number {
+    color: var(--teal-900, #164e4a);
+}
+
+.stat-label {
+    color: var(--ink-soft, #64736f);
+}
+
+.stat-caption {
+    color: var(--ink-soft, #64736f);
+}
+
+.stat-arrow {
+    color: #8b9b93;
+}
+
+/* Appointment panels */
+.home-panel {
+    background: var(--white, #ffffff);
+    border-color: var(--line, #dce5df);
+}
+
+.home-panel-header {
+    background: var(--white, #ffffff);
+    border-bottom-color: var(--line, #dce5df);
+}
+
+.staff-home .home-panel .card-heading {
+    color: var(--teal-900, #164e4a);
+}
+
+.home-panel-subtitle {
+    color: var(--ink-soft, #64736f);
+}
+
+/* Count badges */
+.home-count {
+    background: #f8efd9;
+    color: #876322;
+}
+
+.home-count-teal {
+    background: var(--sage-100, #e7eee7);
+    color: var(--teal-900, #164e4a);
+}
+
+/* Table headers and rows */
+.staff-home .home-table th {
+    background: var(--sage-100, #e7eee7);
+    color: var(--teal-900, #164e4a);
+}
+
+.staff-home .home-table td {
+    border-bottom-color: var(--line, #dce5df);
+    color: var(--ink, #263432);
+}
+
+.staff-home .home-table tbody tr:hover {
+    background: var(--sage-50, #f5f8f4);
+}
+
+.home-patient-name {
+    color: var(--teal-900, #164e4a);
+}
+
+.home-time {
+    color: var(--teal-900, #164e4a);
+}
+
+/* Form controls */
+.home-confirm-form select {
+    border-color: var(--line, #dce5df);
+    background: var(--white, #ffffff);
+    color: var(--ink, #263432);
+}
+
+.home-confirm-form select:focus {
+    outline: 2px solid var(--gold, #d6ad58);
+    outline-offset: 1px;
+}
+
+/* Primary action: dark teal */
+.home-btn-confirm {
+    background: var(--teal-900, #164e4a);
+    color: #ffffff;
+}
+
+.home-btn-confirm:hover:not(:disabled) {
+    background: #205f57;
+}
+
+/* Secondary destructive action */
+.home-btn-reject {
+    background: #ffffff;
+    color: #9d4038;
+    border-color: #e6c8c2;
+}
+
+.home-btn-reject:hover:not(:disabled) {
+    background: #f8e9e5;
+}
+
+/* Notice */
+.home-notice {
+    background: #faf5e8;
+    border-color: #e8d8b5;
+    color: #705a2b;
+}
+
+/* Empty states */
+.home-empty {
+    color: var(--ink-soft, #64736f);
+}
+
+.home-empty > i {
+    color: #78998b;
+}
+
+.home-empty strong {
+    color: var(--teal-900, #164e4a);
+}
+
+/* Focus indicators */
+.home-btn:focus-visible,
+.home-stat:focus-visible {
+    outline: 2px solid var(--gold, #d6ad58);
+    outline-offset: 3px;
+}
+
+/* Optional subtle gold accent for section headings */
+.staff-home .home-panel .card-heading {
+    position: relative;
+}
+
+.staff-home .home-panel .card-heading::before {
+    content: "";
+    display: inline-block;
+    width: 3px;
+    height: 15px;
+    margin-right: 9px;
+    border-radius: 3px;
+    background: var(--gold, #d6ad58);
+    vertical-align: -2px;
+}
+
+/* ---------- DASHBOARD TAB VISIBILITY ---------- */
+.dash-section {
+    display: none;
+}
+
+.dash-section.active {
+    display: block;
+}
+/* Main dashboard content columns */
+.home-dashboard-grid {
+    display: grid;
+    grid-template-columns: minmax(0, 3fr) minmax(260px, 2fr);
+    gap: 16px;
+    align-items: start;
+}
+
+/* Stack the two panels on the right */
+.home-dashboard-right {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+    min-width: 0;
+}
+
+/* Prevent tables from stretching the layout */
+.home-dashboard-grid > *,
+.home-dashboard-right > * {
+    min-width: 0;
+}
+
+/* Responsive layout for smaller screens */
+@media (max-width: 900px) {
+    .home-dashboard-grid {
+        grid-template-columns: 1fr;
+    }
+}
+```css
+#tab-schedule .dash-section-header{margin-bottom:14px}
+#tab-schedule .dash-section-header .dash-title{margin-bottom:4px}
+#tab-schedule .dash-section-header .dash-sub{margin-bottom:0}
+#tab-schedule .schedule-card{margin-bottom:14px;padding:18px}
+#tab-schedule .schedule-card:last-child{margin-bottom:0}
+#tab-schedule .schedule-card-header{margin-bottom:12px}
+#tab-schedule .schedule-card-header .card-heading{margin:0 0 4px}
+#tab-schedule .schedule-card-header .hint{margin:0}
+#tab-schedule .table-responsive{width:100%;overflow-x:auto}
+#tab-schedule .dash-table{width:100%;border-collapse:collapse}
+#tab-schedule .dash-table th,#tab-schedule .dash-table td{padding:10px 12px;vertical-align:middle}
+#tab-schedule .schedule-note{margin:10px 0 0}
+#tab-schedule .empty-state{text-align:center;padding:22px 12px;color:var(--soft-ink,#64736F)}
+@media(max-width:768px){#tab-schedule .schedule-card{padding:12px}#tab-schedule .dash-table{min-width:620px}#tab-schedule .dash-table th,#tab-schedule .dash-table td{padding:9px 10px}}
+/* Home dashboard two-column layout */
+    .home-dashboard-grid {
+      display: grid;
+      grid-template-columns: minmax(0, 3fr) minmax(280px, 2fr);
+      gap: 16px;
+      align-items: start;
+    }
+    .home-dashboard-left,
+    .home-dashboard-right {
+      display: flex;
+      flex-direction: column;
+      gap: 16px;
+      min-width: 0;
+    }
+    .home-dashboard-grid .home-panel {
+      margin: 0;
+      min-width: 0;
+    }
+    .home-dashboard-right .home-table-wrap {
+      overflow-x: auto;
+    }
+    .home-alert-list {
+      display: flex;
+      flex-direction: column;
+    }
+    .home-alert-item {
+      display: flex;
+      align-items: flex-start;
+      gap: 10px;
+      padding: 12px 0;
+      border-bottom: 1px solid var(--line, #dce5df);
+    }
+    .home-alert-item:first-child {
+      padding-top: 2px;
+    }
+    .home-alert-item:last-child {
+      border-bottom: 0;
+    }
+    .home-alert-icon {
+      width: 34px;
+      height: 34px;
+      flex: 0 0 34px;
+      display: grid;
+      place-items: center;
+      border-radius: 10px;
+    }
+    .home-alert-icon-low {
+      background: #f8e9e5;
+      color: #9d4038;
+    }
+    .home-alert-icon-forecast {
+      background: #faf1dc;
+      color: #987022;
+    }
+    .home-alert-content {
+      display: flex;
+      flex-direction: column;
+      gap: 3px;
+      min-width: 0;
+    }
+    .home-alert-content strong {
+      color: var(--ink, #263432);
+      font-size: 0.9rem;
+      overflow-wrap: anywhere;
+    }
+    .home-alert-status {
+      font-size: 0.78rem;
+      font-weight: 600;
+    }
+    .home-alert-status-low {
+      color: #9d4038;
+    }
+    .home-alert-status-forecast {
+      color: #987022;
+    }
+    .home-alert-content small {
+      color: var(--ink-soft, #64736f);
+      font-size: 0.76rem;
+    }
+    .home-alert-link {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 8px;
+      margin-top: 10px;
+      padding-top: 12px;
+      border-top: 1px solid var(--line, #dce5df);
+      color: var(--teal-900, #164e4a);
+      font-size: 0.86rem;
+      font-weight: 600;
+      text-decoration: none;
+    }
+    .home-alert-link:hover {
+      color: #205f57;
+    }
+    @media (max-width: 1000px) {
+      .home-dashboard-grid {
+        grid-template-columns: minmax(0, 1fr);
+      }
+    }
+
+    /* Compact Schedule tab */
+    #tab-schedule .schedule-page-header{margin:0 0 14px}
+    #tab-schedule .schedule-page-header .dash-title{margin:0 0 4px}
+    #tab-schedule .schedule-page-header .dash-sub{margin:0;max-width:760px}
+    #tab-schedule .schedule-card{padding:18px;margin:0 0 14px;min-width:0}
+    #tab-schedule .schedule-card:last-child{margin-bottom:0}
+    #tab-schedule .schedule-card-header{display:flex;align-items:center;justify-content:space-between;gap:14px;margin-bottom:12px}
+    #tab-schedule .schedule-card-header .card-heading{margin:0 0 4px}
+    #tab-schedule .schedule-card-header .hint{margin:0}
+    #tab-schedule .schedule-search-wrap{display:block;flex:0 1 280px;min-width:190px}
+    #tab-schedule .schedule-search{width:100%;min-height:40px;padding:9px 12px;border:1px solid var(--line,#DCE5DF);border-radius:10px;background:var(--sage-light,#F5F8F4);color:var(--ink,#263432);font:inherit;font-size:.88rem;outline:none}
+    #tab-schedule .schedule-search:focus{border-color:var(--teal-900,#164E4A);box-shadow:0 0 0 3px rgba(22,78,74,.1)}
+    #tab-schedule .schedule-table-wrap{width:100%;overflow-x:auto;border-radius:10px}
+    #tab-schedule .dash-table{width:100%;border-collapse:collapse}
+    #tab-schedule .dash-table th,#tab-schedule .dash-table td{padding:10px 12px;vertical-align:middle}
+    #tab-schedule .dash-table tbody tr:last-child td{border-bottom:0}
+    #tab-schedule .schedule-note{margin:10px 0 0}
+    #tab-schedule .schedule-empty-state{text-align:center;padding:28px 14px;color:var(--ink-soft,#64736F)}
+    #tab-schedule .schedule-empty-state strong,#tab-schedule .schedule-empty-state span{display:block}
+    #tab-schedule .schedule-empty-state strong{margin:5px 0;color:var(--ink,#263432);font-size:.92rem}
+    #tab-schedule .schedule-empty-state span:last-child{font-size:.84rem}
+    #tab-schedule .schedule-empty-icon{font-size:1.35rem}
+    #tab-schedule .schedule-no-results{margin:0;padding:16px;text-align:center;color:var(--ink-soft,#64736F);font-size:.88rem}
+    #tab-schedule .sr-only{position:absolute;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip:rect(0,0,0,0);white-space:nowrap;border:0}
+    @media(max-width:760px){#tab-schedule .schedule-card{padding:12px}#tab-schedule .schedule-card-header{align-items:stretch;flex-direction:column;gap:10px}#tab-schedule .schedule-search-wrap{flex:1 1 auto;min-width:0}#tab-schedule .dash-table{min-width:620px}#tab-schedule .dash-table th,#tab-schedule .dash-table td{padding:9px 10px}}
+    
+/* Recent Appointment History toggle */
+.history-toggle-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  padding: 10px 16px;
+  border: 1px solid #d6e4e1;
+  border-radius: 8px;
+  background: #f2f8f6;
+  color: #146b61;
+  font-family: inherit;
+  font-size: 13px;
+  font-weight: 600;
+  cursor: pointer;
+  white-space: nowrap;
+  transition: background 0.2s ease, border-color 0.2s ease;
+}
+
+.history-toggle-btn:hover {
+  background: #e4f1ed;
+  border-color: #146b61;
+}
+
+.history-toggle-btn:focus-visible {
+  outline: 2px solid #146b61;
+  outline-offset: 3px;
+}
+
+.history-toggle-icon {
+  font-size: 12px;
+  line-height: 1;
+}
+
+.history-search-header {
+  margin-top: 16px;
+}
+
+#history-content[hidden] {
+  display: none !important;
+}
+
+@media (max-width: 600px) {
+  #history-card > .schedule-card-header {
+    align-items: flex-start;
+    gap: 12px;
+  }
+
+  .history-toggle-btn {
+    padding: 9px 11px;
+    font-size: 12px;
+  }
+}
+/* Medicine Inventory */
+.inventory-page-header {
+    margin-bottom: 22px;
+}
+
+.inventory-summary-grid {
+    display: grid;
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+    gap: 16px;
+    margin-bottom: 22px;
+}
+
+.inventory-summary-card {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+    min-width: 0;
+    margin-bottom: 0;
+}
+
+.inventory-summary-icon {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex: 0 0 44px;
+    width: 44px;
+    height: 44px;
+    border-radius: 12px;
+    background: #e6f3f0;
+    font-size: 21px;
+}
+
+.inventory-icon-warning {
+    background: #fff0d9;
+}
+
+.inventory-icon-danger {
+    background: #fde8e7;
+    color: #b42318;
+    font-size: 25px;
+    font-weight: 700;
+}
+
+.inventory-summary-label {
+    margin: 0 0 5px;
+    color: #667085;
+    font-size: 13px;
+}
+
+.inventory-summary-value {
+    margin: 0;
+    font-size: 26px;
+    line-height: 1.2;
+}
+
+.inventory-summary-note {
+    display: block;
+    margin-top: 5px;
+    color: #667085;
+    font-size: 11px;
+    line-height: 1.4;
+}
+
+.inventory-add-card,
+.inventory-stock-card,
+.inventory-forecast-card {
+    margin-bottom: 22px;
+}
+
+.inventory-chart-wrap {
+    width: 100%;
+    margin: 20px 0;
+}
+
+.inventory-chart-wrap canvas {
+    max-width: 100%;
+}
+
+.forecast-information {
+    padding: 14px 16px;
+    margin: 14px 0;
+    border-left: 4px solid #146b61;
+    border-radius: 6px;
+    background: #f2f8f6;
+}
+
+.forecast-information strong {
+    display: block;
+    margin-bottom: 5px;
+}
+
+.forecast-information p {
+    margin: 0;
+    color: #475467;
+    font-size: 13px;
+    line-height: 1.6;
+}
+
+.inventory-stock-card .schedule-table-wrap {
+    overflow-x: auto;
+}
+
+.inventory-stock-card .dash-table {
+    min-width: 950px;
+}
+
+.inventory-stock-card .restock-form {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    min-width: 130px;
+}
+
+.inventory-stock-card .restock-form input[type="number"] {
+    width: 78px;
+    min-width: 0;
+}
+
+.history-toggle-btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    padding: 9px 14px;
+    border: 1px solid #d0d5dd;
+    border-radius: 8px;
+    background: #fff;
+    color: #344054;
+    font: inherit;
+    font-size: 13px;
+    font-weight: 600;
+    cursor: pointer;
+    white-space: nowrap;
+}
+
+.history-toggle-btn:hover {
+    background: #f8fafc;
+    border-color: #98a2b3;
+}
+
+.history-toggle-btn:focus-visible {
+    outline: 3px solid rgba(20, 107, 97, 0.25);
+    outline-offset: 2px;
+}
+
+@media (max-width: 1100px) {
+    .inventory-summary-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+}
+
+@media (max-width: 600px) {
+    .inventory-summary-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .inventory-summary-card {
+        padding: 14px;
+    }
+
+    .inventory-add-card .card-heading-row,
+    .inventory-stock-card .card-heading-row,
+    .inventory-forecast-card .card-heading-row {
+        align-items: flex-start;
+        flex-direction: column;
+    }
+
+    .inventory-stock-card .schedule-search-wrap,
+    .inventory-stock-card .schedule-search {
+        width: 100%;
+    }
+}
+/* Medicine Inventory */
+.inventory-page-header {
+    margin-bottom: 22px;
+}
+
+.inventory-summary-grid {
+    display: grid;
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+    gap: 16px;
+    margin-bottom: 22px;
+}
+
+.inventory-summary-card {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+    min-width: 0;
+    margin-bottom: 0;
+}
+
+.inventory-summary-icon {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex: 0 0 44px;
+    width: 44px;
+    height: 44px;
+    border-radius: 12px;
+    background: #e6f3f0;
+    font-size: 21px;
+}
+
+.inventory-icon-warning {
+    background: #fff0d9;
+}
+
+.inventory-icon-danger {
+    background: #fde8e7;
+    color: #b42318;
+    font-size: 25px;
+    font-weight: 700;
+}
+
+.inventory-summary-label {
+    margin: 0 0 5px;
+    color: #667085;
+    font-size: 13px;
+}
+
+.inventory-summary-value {
+    margin: 0;
+    font-size: 26px;
+    line-height: 1.2;
+}
+
+.inventory-summary-note {
+    display: block;
+    margin-top: 5px;
+    color: #667085;
+    font-size: 11px;
+    line-height: 1.4;
+}
+
+.inventory-add-card,
+.inventory-stock-card,
+.inventory-forecast-card {
+    margin-bottom: 22px;
+}
+
+.inventory-chart-wrap {
+    width: 100%;
+    margin: 20px 0;
+}
+
+.inventory-chart-wrap canvas {
+    max-width: 100%;
+}
+
+.forecast-information {
+    padding: 14px 16px;
+    margin: 14px 0;
+    border-left: 4px solid #146b61;
+    border-radius: 6px;
+    background: #f2f8f6;
+}
+
+.forecast-information strong {
+    display: block;
+    margin-bottom: 5px;
+}
+
+.forecast-information p {
+    margin: 0;
+    color: #475467;
+    font-size: 13px;
+    line-height: 1.6;
+}
+
+.inventory-stock-card .schedule-table-wrap {
+    overflow-x: auto;
+}
+
+.inventory-stock-card .dash-table {
+    min-width: 950px;
+}
+
+.inventory-stock-card .restock-form {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    min-width: 130px;
+}
+
+.inventory-stock-card .restock-form input[type="number"] {
+    width: 78px;
+    min-width: 0;
+}
+
+.history-toggle-btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    padding: 9px 14px;
+    border: 1px solid #d0d5dd;
+    border-radius: 8px;
+    background: #fff;
+    color: #344054;
+    font: inherit;
+    font-size: 13px;
+    font-weight: 600;
+    cursor: pointer;
+    white-space: nowrap;
+}
+
+.history-toggle-btn:hover {
+    background: #f8fafc;
+    border-color: #98a2b3;
+}
+
+.history-toggle-btn:focus-visible {
+    outline: 3px solid rgba(20, 107, 97, 0.25);
+    outline-offset: 2px;
+}
+
+@media (max-width: 1100px) {
+    .inventory-summary-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+}
+
+@media (max-width: 600px) {
+    .inventory-summary-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .inventory-summary-card {
+        padding: 14px;
+    }
+
+    .inventory-add-card .card-heading-row,
+    .inventory-stock-card .card-heading-row,
+    .inventory-forecast-card .card-heading-row {
+        align-items: flex-start;
+        flex-direction: column;
+    }
+
+    .inventory-stock-card .schedule-search-wrap,
+    .inventory-stock-card .schedule-search {
+        width: 100%;
+    }
+}

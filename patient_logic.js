@@ -5,17 +5,12 @@
   // ---------- TAB NAVIGATION ----------
   function switchTab(name, updateUrl = false) {
     if (name === "home") {
-      const homeTab = document.getElementById("tab-home");
-      if (homeTab) {
-        name = "home";
-      } else {
+      if (!document.getElementById("tab-home")) {
         name = "overview";
       }
     }
 
     const target = document.getElementById("tab-" + name);
-
-    // Ignore invalid tab names
     if (!target) return;
 
     document.body.dataset.tab = name;
@@ -39,8 +34,6 @@
     window.scrollTo({ top: 0, behavior: "smooth" });
   }
 
-  // Only navigation links should handle tab clicks.
-  // Do not use [data-tab] here because other elements may have that attribute.
   document.querySelectorAll("a[data-tab]").forEach((link) => {
     link.addEventListener("click", (event) => {
       event.preventDefault();
@@ -48,35 +41,124 @@
     });
   });
 
-  // Open the tab specified in the URL.
   const params = new URLSearchParams(window.location.search);
-  const defaultTab = document.getElementById("tab-home") ? "home" : "overview";
-  switchTab(params.get("tab") || document.body.dataset.tab || defaultTab);
-  // Make tab navigation available to other dashboard functions.
+  const defaultTab = document.getElementById("tab-home")
+    ? "home"
+    : "overview";
+
+  switchTab(
+    params.get("tab") || document.body.dataset.tab || defaultTab
+  );
+
   window.switchTab = switchTab;
 
+  // ---------- RECENT APPOINTMENT HISTORY TOGGLE ----------
+  const historyToggle = document.getElementById("history-toggle");
+  const historyContent = document.getElementById("history-content");
+  const historyToggleText = document.getElementById("history-toggle-text");
+  const historyToggleIcon = document.getElementById("history-toggle-icon");
 
-  // ---------- APPOINTMENT HISTORY TOGGLE ----------
-  const historyToggle = document.getElementById("historyToggle");
-  const historyContent = document.getElementById("appointmentHistoryContent");
-  const historyIcon = document.getElementById("historyToggleIcon");
-
-  if (historyToggle && historyContent && historyIcon) {
+  if (historyToggle && historyContent) {
     historyToggle.addEventListener("click", function () {
       const isExpanded =
-        this.getAttribute("aria-expanded") === "true";
+        historyToggle.getAttribute("aria-expanded") === "true";
 
-      this.setAttribute("aria-expanded", String(!isExpanded));
-      historyContent.classList.toggle("is-collapsed", isExpanded);
-      historyIcon.textContent = isExpanded ? "+" : "−";
+      historyToggle.setAttribute("aria-expanded", String(!isExpanded));
+      historyContent.hidden = isExpanded;
+
+      if (historyToggleText) {
+        historyToggleText.textContent = isExpanded
+          ? "Show history"
+          : "Hide history";
+      }
+
+      if (historyToggleIcon) {
+        historyToggleIcon.textContent = isExpanded ? "▾" : "▴";
+      }
     });
   }
 
+  // ---------- ADD MEDICINE FORM TOGGLE ----------
+  const medicineFormToggle = document.getElementById(
+    "medicine-form-toggle"
+  );
+  const medicineFormContent = document.getElementById(
+    "medicine-form-content"
+  );
+  const medicineFormToggleText = document.getElementById(
+    "medicine-form-toggle-text"
+  );
+  const medicineFormToggleIcon = document.getElementById(
+    "medicine-form-toggle-icon"
+  );
+
+  if (medicineFormToggle && medicineFormContent) {
+    medicineFormToggle.addEventListener("click", function () {
+      const isExpanded =
+        medicineFormToggle.getAttribute("aria-expanded") === "true";
+
+      medicineFormToggle.setAttribute(
+        "aria-expanded",
+        String(!isExpanded)
+      );
+
+      medicineFormContent.hidden = isExpanded;
+
+      if (medicineFormToggleText) {
+        medicineFormToggleText.textContent = isExpanded
+          ? "Add medicine"
+          : "Close form";
+      }
+
+      if (medicineFormToggleIcon) {
+        medicineFormToggleIcon.textContent = isExpanded ? "▾" : "▴";
+      }
+    });
+  }
+
+  // ---------- MEDICINE INVENTORY SEARCH ----------
+  const medicineSearch = document.getElementById("medicine-search");
+  const medicineTable = document.getElementById("medicine-table");
+  const medicineNoResults = document.getElementById(
+    "medicine-no-results"
+  );
+
+  if (medicineSearch && medicineTable) {
+    medicineSearch.addEventListener("input", function () {
+      const query = medicineSearch.value.trim().toLowerCase();
+
+      const rows = Array.from(
+        medicineTable.querySelectorAll(
+          "tbody tr:not(.schedule-empty-row)"
+        )
+      );
+
+      let visibleCount = 0;
+
+      rows.forEach((row) => {
+        const matches = row.textContent.toLowerCase().includes(query);
+
+        row.hidden = !matches;
+
+        if (matches) {
+          visibleCount++;
+        }
+      });
+
+      if (medicineNoResults) {
+        medicineNoResults.hidden =
+          query.length === 0 ||
+          visibleCount > 0 ||
+          rows.length === 0;
+      }
+    });
+  }
 
   // ---------- PASSWORD SHOW / HIDE ----------
   document.querySelectorAll(".toggle-password").forEach((button) => {
     button.addEventListener("click", () => {
       const targetId = button.dataset.target;
+
       const input = targetId
         ? document.getElementById(targetId)
         : button.parentElement.querySelector("input");
@@ -89,8 +171,13 @@
       const eye = button.querySelector(".icon-eye");
       const eyeOff = button.querySelector(".icon-eye-off");
 
-      if (eye) eye.style.display = showing ? "block" : "none";
-      if (eyeOff) eyeOff.style.display = showing ? "none" : "block";
+      if (eye) {
+        eye.style.display = showing ? "block" : "none";
+      }
+
+      if (eyeOff) {
+        eyeOff.style.display = showing ? "none" : "block";
+      }
 
       button.setAttribute(
         "aria-label",
@@ -106,7 +193,6 @@
 
     input.type = input.type === "password" ? "text" : "password";
   };
-
 
   // ---------- LIVE PASSWORD REQUIREMENTS ----------
   const newPass = document.getElementById("acc-newpass");
@@ -135,7 +221,6 @@
     updatePasswordRequirements();
   }
 
-
   // ---------- LOCAL DATE HELPER ----------
   function getLocalDateString() {
     const today = new Date();
@@ -146,7 +231,6 @@
     return `${year}-${month}-${day}`;
   }
 
-
   // ---------- APPOINTMENT DATE VALIDATION ----------
   const dateInput = document.getElementById("ap-date");
 
@@ -154,14 +238,12 @@
     dateInput.min = getLocalDateString();
   }
 
-
   // ---------- DATE OF BIRTH VALIDATION ----------
   const dobInput = document.getElementById("pf-dob");
 
   if (dobInput) {
     dobInput.max = getLocalDateString();
   }
-
 
   // ---------- APPOINTMENT TIME OPTIONS ----------
   const CENTER_HOURS = window.CENTER_HOURS || {};
@@ -224,21 +306,27 @@
 
   window.updateTimeOptions = updateTimeOptions;
 
+  // Update available times when the selected center changes.
+  const centerSelect = document.getElementById("centerSelect");
+
+  if (centerSelect) {
+    centerSelect.addEventListener("change", updateTimeOptions);
+    updateTimeOptions();
+  }
 
   // ---------- PRESELECT CENTER FOR BOOKING ----------
   function bookAt(centerId) {
     switchTab("appointments");
 
-    const centerSelect = document.getElementById("centerSelect");
+    const center = document.getElementById("centerSelect");
 
-    if (centerSelect) {
-      centerSelect.value = centerId;
+    if (center) {
+      center.value = centerId;
       updateTimeOptions();
     }
   }
 
   window.bookAt = bookAt;
-
 
   // ---------- CANCEL APPOINTMENT MODAL ----------
   function openCancelModal(id) {
@@ -260,7 +348,7 @@
 
   if (cancelModal) {
     cancelModal.addEventListener("click", (event) => {
-      if (event.target.id === "cancelModal") {
+      if (event.target === cancelModal) {
         closeCancelModal();
       }
     });
